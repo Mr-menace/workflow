@@ -1,0 +1,10 @@
+
+----kung may naka install na local server ng php at naka config na 
+----pati sa Environment variables
+
+1.Click server.bat
+2.open browser
+3.url: localhost:1000/index.php 
+
+kung wala index.html lang
+
