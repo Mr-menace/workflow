@@ -5,34 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+  <!--<script src="https://unpkg.com/@popperjs/core@2"></script>  LIBRARY OF TOOLTIP--> 
+
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
-  <style>
-/* para sa outline natin*/
-.dotted {outline-style: groove; outline-color:red;}
+  <!--DECORATION CSS FILE NATIN-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/decor.css">
 
-</style>
 
+  <!-- Toolitip initializer for the whole document with jquery-->
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    </script>
+
+    <!-- THIS IS FOR OUR SMOOTH SCROLL NAVIGATION FEATURE -->
+<script>
+
+  $(document).ready(function(){
+    // Add scrollspy to <body>
+    $('body').scrollspy({target: ".navbar", offset: 50});   
+  
+    // Add smooth scrolling on all links inside the navbar
+    $("#OurNavBar a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      }  // End if
+    });
+  });
+
+
+  </script>
+<!--==========================================================-->
 </head>
-<body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+<body id="body">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="OurNavBar"> <!--DEFINE SMOOTH SCROLL FUNCTIONALITY TO ENTIRE BODY-->
+  
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand"   href="#body" class="smoothscroll" >
     <img src="img/dbz.jpg" class="rounded-circle"  alt="logo" style="width:50px;">
   </a>
   
   <!-- Links -->
-  
-  <ul class="navbar-nav ">
+  <ul class="navbar-nav " >
+
     <li class="nav-item dropdown">
+
  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class='fas fa-film' style='font-size:15px'></i>&nbsp;Dragon Ball Series</a>
-      <div class="dropdown-menu ">
+      <div class="dropdown-menu scrollable-menu" role="menu">
       <h5 class="dropdown-header"><img src="img/db_series.jpg" class="img-responsive"  alt="logo" style="width:30px;"><font color="#C1831E">&nbsp;Dragonball Series</font></h5>
         <a class="dropdown-item" href="#"><img src="img/db.jpg" class="img-responsive"  alt="logo" style="width:50px;">&nbsp;Dragon Ball</a>
         <a class="dropdown-item" href="#"><img src="img/dbz_ser.jpg" class="img-responsive"  alt="logo" style="width:50px;">&nbsp;Dragon Ball Z</a>
@@ -60,12 +105,11 @@
         <a class="dropdown-item" href="#"><img src="img/dbmovies/dbz_battle_of_gods.jpg" class="img-responsive"  alt="logo" style="width:50px;">&nbsp;Dragonball Z: Batlle of Gods</a>
         <a class="dropdown-item" href="#"><img src="img/dbmovies/dbz_resurrection_of_f.jpg" class="img-responsive"  alt="logo" style="width:50px;">&nbsp;Dragonball Z: Resurrection of F</a>
         <a class="dropdown-item" href="#"><img src="img/dbmovies/dbs_broly.jpg" class="img-responsive"  alt="logo" style="width:50px;">&nbsp;Dragonball Super: Broly</a>
-        
-  
     </div>
+
     </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#"><i class='fas fa-camera' style='font-size:15px'></i>&nbsp;Gallery</a>
+    <li class="nav-item" >
+      <a class="nav-link " href="#vegeta" class="smoothScroll" ><i class='fas fa-camera' style='font-size:15px'></i>&nbsp;Gallery</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#"><i class='fas fa-pencil-alt' style='font-size:15px'></i>&nbsp;Stories</a>
@@ -77,10 +121,10 @@
       <a class="nav-link" href="#"><i class='fas fa-dice' style='font-size:15px'></i>&nbsp;Dragon Ball Games</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class='far fa-comment-alt' style='font-size:15px'></i>&nbsp;Contact Us</a>
+      <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><i class='far fa-comment-alt' style='font-size:15px'></i>&nbsp;Contact Us</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class='far fa-user-circle' style='font-size:15px'></i>&nbsp;Login</a>
+      <a class="nav-link" href="#" data-toggle="tooltip" data-popper-arrow data-placement="bottom" title="Login to connect to with other fans worldwide" ><i class='far fa-user-circle' style='font-size:15px'></i>&nbsp;Login</a>
     </li>
 
     <li class="na-item">
@@ -93,27 +137,18 @@
     </li>
   </ul>
 </nav>
-<center>
-<h5>Visit Us Thru This Links</h5><nr>
 
-<i class='fab fa-facebook-square' style='font-size:30px;color:#3B5998'></i>&nbsp;
-<i class='fab fa-twitter-square' style='font-size:30px;color:#55ACEE'></i>&nbsp;
-<i class='fab fa-google' style='font-size:30px;color:#dd4b39'></i>&nbsp;
-<i class='fab fa-youtube' style='font-size:30px;color:#bb0000'></i>&nbsp;
-<i class='fab fa-yahoo' style='font-size:30px;color:#430297'></i>&nbsp;
+<center>
+<h3><font  face="Copper Plate Gothic" color="#C1831E"><b>&nbsp;&nbsp;Cast</b></h3></font>
 </center>
 
-<h3><font  face="Papyrus" color="#C1831E"><b>&nbsp;&nbsp;Characters</b></h3></font>
-<!-- eto yung sa Style-->
-<div class="dotted">
-<!-- ================ -->
 <br>
-
+ 
 <!--- UMPISA NG ROW CLASS -->
 <div class="row">
 
   <div class="col-xl-4">
-<div class="card bg-success text-white" style="width:100%"  >
+<div class="card bg-success text-white" style="width:100%">
 <img class="card-img-top" src="img/gohan.gif" alt="Card image">
       <div class="card-body">
         <h5 class="card-title">SSJ2 Gohan</h5>
@@ -145,22 +180,26 @@
     </div>
   </div>
 
-  <div class="col-xl-4">
+ 
+  <div class="col-xl-4" id="vegeta" >
   <br>
+ 
     <div class="card bg-danger text-white" style="height:79.50rem;" >
     <img class="card-img-top" src="img/vegeta.jpg" alt="Card image" style="width:100%">
       <div class="card-body">
         <h5 class="card-title">Vegeta</h5>
         <p class="card-text">The Saiyan Prince and Pride, Also the Father of Trunks.</p>
         <a href="#" class="btn btn-info">Story of Vegeta</a>
+
       </div>
+
 <!-- ====================================================================================  -->
       <img class="card-img-top" src="img/beerus.png" alt="Card image" style="width:100%">
       <div class="card-body">
         <h5 class="card-title">Lord Beerus</h5>
         <p class="card-text">The God of Destruction of Universe 7.</p>
         <a href="#" class="btn btn-info">Story of Beerus</a>
-      </div>
+      </div>     
 <!-- ====================================================================================  -->
 
     </div>
@@ -189,8 +228,8 @@
 
 <div class="col-xl-4">
   <br>
-    <div class="card bg-danger text-white" >
-    <img class="card-img-top" src="img/frieza.jfif" alt="Card image" style="width:100%">
+    <div class="card bg-danger text-white " >
+    <img class="card-img-top" src="img/frieza.jfif" alt="Card image" style="width:100%" height="450">
       <div class="card-body">
         <h5 class="card-title">Frieza</h5>
         <p class="card-text">The Emperor of Evil Loves to Conquer Planets and Destroying
@@ -198,7 +237,7 @@
         <a href="#" class="btn btn-info">Story of Frieza</a>
       </div>
 
-      <img class="h-50 d-inline-block card-img-top" src="img/whiz.png" alt="Card image" style="width:100%" >
+      <img class="d-inline-block card-img-top" src="img/whiz.png" alt="Card image" style="width:100%;" height="415">
       <div class="card-body">
         <h5 class="card-title">Whiz</h5>
         <p class="card-text">The Emperor of Evil Loves to Conquer Planets and Destroying
@@ -212,11 +251,45 @@
 
 </div><!-- CLOSING FOR ROW CLASS-->
 
-<div class="footer">
-  <p align="center">All rights Reserved to the Owner</p>
-</div>
+<div class="icon-bar">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+    <a href="#" class="google"><i class="fa fa-google"></i></a> 
+    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+ </div>
 
+ <!--FOR MODAL DIALOGS-->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
 
-    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+
+    </div>
+    </div>
+
 </body>
 </html>
